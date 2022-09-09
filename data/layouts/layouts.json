@@ -195,9 +195,9 @@
       "id": "LAYOUT_ROUTE104",
       "name": "Route104_Layout",
       "width": 40,
-      "height": 80,
+      "height": 26,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Rustboro",
+      "secondary_tileset": "gTileset_Cave",
       "border_filepath": "data/layouts/Route104/border.bin",
       "blockdata_filepath": "data/layouts/Route104/map.bin"
     },
@@ -4520,6 +4520,16 @@
       "secondary_tileset": "gTileset_PokemonCenter",
       "border_filepath": "data/layouts/Checkpoint3_Pokecenter/border.bin",
       "blockdata_filepath": "data/layouts/Checkpoint3_Pokecenter/map.bin"
+    },
+    {
+      "id": "LAYOUT_CHECKPOINT4",
+      "name": "Checkpoint4_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Lavaridge",
+      "border_filepath": "data/layouts/Checkpoint4/border.bin",
+      "blockdata_filepath": "data/layouts/Checkpoint4/map.bin"
     }
   ]
 }

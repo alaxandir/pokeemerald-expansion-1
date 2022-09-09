@@ -577,6 +577,8 @@ gStdScripts_End::
 	.include "data/scripts/new_game.inc"
 	.include "data/scripts/hall_of_fame.inc"
 
+	.include "data/scripts/debug.inc"
+
 EventScript_WhiteOut::
 	call EverGrandeCity_HallOfFame_EventScript_ResetEliteFour
 	goto EventScript_ResetMrBriney
@@ -1082,3 +1084,5 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/Checkpoint3_Mart/scripts.inc"
 
 	.include "data/maps/Checkpoint3_Pokecenter/scripts.inc"
+
+	.include "data/maps/Checkpoint4/scripts.inc"

@@ -378,7 +378,7 @@ const struct TrainerMoney gTrainerMoneyTable[] =
     {TRAINER_CLASS_TWINS, 3},
     {TRAINER_CLASS_SAILOR, 8},
     {TRAINER_CLASS_COLLECTOR, 15},
-    {TRAINER_CLASS_RIVAL, 15},
+    {TRAINER_CLASS_RIVAL, 20},
     {TRAINER_CLASS_PKMN_BREEDER, 10},
     {TRAINER_CLASS_PKMN_RANGER, 12},
     {TRAINER_CLASS_TEAM_MAGMA, 5},
@@ -4007,8 +4007,17 @@ static void HandleTurnActionSelectionState(void)
                     }
                     break;
                 case B_ACTION_USE_ITEM:
-                    if ((gBattleTypeFlags & ( BATTLE_TYPE_TRAINER
-                                            | BATTLE_TYPE_LINK
+                    if (FlagGet(B_FLAG_NO_BAG_USE))
+                    {
+                        RecordedBattle_ClearBattlerAction(gActiveBattler, 1);
+                        gSelectionBattleScripts[gActiveBattler] = BattleScript_ActionSelectionItemsCantBeUsed;
+                        gBattleCommunication[gActiveBattler] = STATE_SELECTION_SCRIPT;
+                        *(gBattleStruct->selectionScriptFinished + gActiveBattler) = FALSE;
+                        *(gBattleStruct->stateIdAfterSelScript + gActiveBattler) = STATE_BEFORE_ACTION_CHOSEN;
+                        return;
+                    }
+
+                    if ((gBattleTypeFlags & (BATTLE_TYPE_LINK
                                             | BATTLE_TYPE_FRONTIER_NO_PYRAMID
                                             | BATTLE_TYPE_EREADER_TRAINER
                                             | BATTLE_TYPE_RECORDED_LINK))
